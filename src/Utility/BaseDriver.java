@@ -1,10 +1,14 @@
 package Utility;
 
-import io.opentelemetry.api.logs.Logger;
+import US408.US408Elements;
+
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -12,16 +16,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.time.Duration;
-import java.util.logging.LogManager;
 
 
 public class BaseDriver {
 
 
-    private static java.util.logging.LogManager LogManager;/// KONTROL EDİLECEK
-    public static Logger LogTutma= (Logger) LogManager.getLogger(); // Logları ekleyeceğim nesneyi başlattım.///
+    public static Logger LogTutma= (Logger) LogManager.getLogger();
 
     // aşağısını SDET8 den aldık
     public static WebDriver driver;
@@ -43,29 +46,18 @@ public class BaseDriver {
         LoginTest();
     }
 
-    public void LoginTest()
-    {
-        System.out.println("Login Test başladı");
-        LogTutma.info("Login Test başladı");
-        driver.get("http://opencart.abstracta.us/index.php?route=account/login");
-        MyFunc.Bekle(2);
+    public void LoginTest() {
+        driver.get("https://o2.openmrs.org/openmrs/login.htm");
 
-        WebElement email=driver.findElement(By.xpath("//input[@id='input-email']"));
-        email.sendKeys("testng1@gmail.com");
+        US408Elements elements = new US408Elements(driver);
+        wait.until(ExpectedConditions.visibilityOf(elements.usernameInputField)).sendKeys("admin");
+        wait.until(ExpectedConditions.visibilityOf(elements.passwordInputField)).sendKeys("Admin123");
+        wait.until(ExpectedConditions.visibilityOf(elements.locations.get(MyFunc.RandomSayiVer(elements.locations.size())))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(elements.logInButton)).click();
+        wait.until(ExpectedConditions.visibilityOf(elements.userIcon));
+        new Actions(driver).moveToElement(elements.userIcon).build().perform();
 
-        WebElement password=driver.findElement(By.xpath("//input[@id='input-password']"));
-        password.sendKeys("123qweasd");
-
-        WebElement loginBtn=driver.findElement(By.xpath("//*[@value='Login']"));
-        loginBtn.click();
-
-        driver.findElement(By.xpath("//*[@id='details-button']")).click();
-        driver.findElement(By.xpath("//*[@id='proceed-link']")).click();
-
-        Assert.assertTrue(driver.getTitle().equals("My Account"), "Login olunamadı");
-
-        System.out.println("Login Test bitti");
-        LogTutma.info("Login Testi tamamlandı");
+        Assert.assertTrue(elements.myAccountButton.isDisplayed());
     }
 
 
