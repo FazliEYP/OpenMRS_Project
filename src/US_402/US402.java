@@ -3,6 +3,7 @@ package US_402;
 
 import Utility.BaseDriver;
 import Utility.BaseDriverParameter;
+import Utility.Elements;
 import Utility.MyFunc;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,39 +12,38 @@ import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import javax.lang.model.util.Elements;
-
-public class US402 extends BaseDriverParameter {
+public class US402 extends BaseDriver {
 
     @Test
     public void UserStory402(){
 
-      Elements elements = new Elements(driver);
+      Elements elements1=new Elements(driver);
+
         driver.get("https://openmrs.org/");
 
-        elements.demoButton.click();
+        elements1.demoButton.click();
         MyFunc.Bekle(2);
 
-        elements.exploreOpenMRS2Button.click();
+        elements1.exploreOpenMRS2Button.click();
 
         wait.until(ExpectedConditions.urlContains("openmrs2"));
         MyFunc.Bekle(2);
 
-        elements.enterExploreOpenMRS2Button.click();
+        elements1.enterExploreOpenMRS2Button.click();
 
-        wait.until(ExpectedConditions.visibilityOf(elements.usernameInputField));
-        elements.usernameInputField.sendKeys("admin");
-        elements.passwordInputField.sendKeys("Admin123");
-        elements.locations.get(MyFunc.RandomSayiVer(elements.locations.size())).click();
+        wait.until(ExpectedConditions.visibilityOf(elements1.usernameInputField));
+        elements1.usernameInputField.sendKeys("admin");
+        elements1.passwordInputField.sendKeys("Admin123");
+       elements1.locations.get(MyFunc.RandomSayiVer(elements1.locations.size())).click();
 
-        elements.logInButton.click();
+        elements1.logInButton.click();
 
-        wait.until(ExpectedConditions.visibilityOf(elements.userIcon));
-        new Actions(driver).moveToElement(elements.userIcon).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(elements1.userIcon));
+        new Actions(driver).moveToElement(elements1.userIcon).build().perform();
 
-        wait.until(ExpectedConditions.visibilityOf(elements.myAccountButton));
+        wait.until(ExpectedConditions.visibilityOf(elements1.myAccountButton));
 
-        Assert.assertTrue(elements.myAccountButton.isDisplayed());
+        Assert.assertTrue(elements1.myAccountButton.isDisplayed());
 
     }
 
