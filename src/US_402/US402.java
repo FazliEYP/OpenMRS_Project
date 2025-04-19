@@ -1,6 +1,6 @@
 package US_402;
 
-import US_402.US402Elements;
+
 import Utility.BaseDriver;
 import Utility.BaseDriverParameter;
 import Utility.MyFunc;
@@ -18,7 +18,7 @@ public class US402 extends BaseDriverParameter {
     @Test
     public void UserStory402(){
 
-      US402Elements elements = new US402Elements(driver);
+      Elements elements = new Elements(driver);
         driver.get("https://openmrs.org/");
 
         elements.demoButton.click();

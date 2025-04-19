@@ -77,8 +77,6 @@ public class Elements {
     @FindBy(xpath = "//*[@id='Pharmacy']")
     public WebElement pharmacy;
 
-
-
     @FindBy(xpath = "//*[@class='icon-user']")
     public WebElement registerPatient;
 
