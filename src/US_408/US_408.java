@@ -1,6 +1,7 @@
 package US_408;
 
 import Utility.BaseDriver;
+import Utility.Elements;
 import Utility.MyFunc;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -13,7 +14,7 @@ public class US_408 extends BaseDriver {
 
     @Test(groups = {"Regression", "PatientManagement"})
     public void US308() {
-      US408Elements elements = new US408Elements(driver);
+        Elements elements = new Elements(driver);
         wait.until(ExpectedConditions.elementToBeClickable(elements.searchIcon)).click();
 
         int actualEntry = 0;

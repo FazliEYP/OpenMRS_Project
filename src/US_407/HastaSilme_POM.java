@@ -1,6 +1,8 @@
 package US_407;
 
 import Utility.BaseDriver;
+import Utility.BaseDriverParameter;
+import Utility.Elements;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,21 +15,21 @@ public class HastaSilme_POM extends BaseDriverParameter {
     public void HastaSilme(){
 
     WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
-    HastaSilme_Elements hse = new HastaSilme_Elements();
+    Elements hse = new Elements(driver);
     driver.get("https://o2.openmrs.org/openmrs/login.htm");
 
 
-    wait1.until(ExpectedConditions.visibilityOf(hse.userName));
-    hse.userName.sendKeys("admin");
-    hse.password.sendKeys("Admin123");
-    hse.regDesk.click();
-    hse.loginButton.click();
+    wait1.until(ExpectedConditions.visibilityOf(hse.usernameInputField));
+    hse.usernameInputField.sendKeys("admin");
+    hse.passwordInputField.sendKeys("Admin123");
+    hse.registration.click();
+    hse.logInButton.click();
 
     wait1.until(ExpectedConditions.elementToBeClickable(hse.findPatientRecord));
     hse.findPatientRecord.click();
 
-    wait1.until(ExpectedConditions.visibilityOf(hse.searchBox));
-    hse.searchBox.sendKeys("100KFD" + Keys.ENTER);
+    wait1.until(ExpectedConditions.visibilityOf(hse.searchField));
+    hse.searchField.sendKeys("100KFD" + Keys.ENTER);
     hse.activePatient.click();
 
 

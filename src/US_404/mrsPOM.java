@@ -4,6 +4,7 @@ import Utility.BaseDriver;
 
 import Utility.BaseDriverParameter;
 
+import Utility.Elements;
 import Utility.MyFunc;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -28,7 +29,7 @@ public class mrsPOM extends BaseDriverParameter {
         String middleName = "Annie";
         String lastName = "Johnson";
 
-       mrsElements mrs = new mrsElements(driver);
+       Elements mrs = new Elements(driver);
         mrs.registerPatient.click();
         mrs.givenName.sendKeys(firstName);
         mrs.middleName.sendKeys(middleName);
