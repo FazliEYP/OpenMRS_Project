@@ -43,7 +43,7 @@ public class BaseDriver {
 
         wait=new WebDriverWait(driver, Duration.ofSeconds(20));
         LogTutma.info("Başlangıç değişkenleri driver,wait,log tanımlandı ve başlatıldı");
-        LoginTest();
+       // LoginTest();
     }
 
     public void LoginTest() {
