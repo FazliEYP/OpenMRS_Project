@@ -27,7 +27,7 @@ public class BaseDriver {
 
     public static Logger LogTutma= (Logger) LogManager.getLogger();
 
-    // aşağısını SDET8 den aldık
+
     public static WebDriver driver;
     public static WebDriverWait wait;
 
@@ -35,7 +35,7 @@ public class BaseDriver {
     public void Setup()
     {
         LogTutma.info("Log Tutma işlemi başladı");
-        // seleniumdaki static yani başlangıç kısımlar konacak
+
         driver=new ChromeDriver();
 
         driver.manage().window().maximize(); // Ekranı max yapıyor.
@@ -65,12 +65,12 @@ public class BaseDriver {
     @AfterClass
     public void TearDown()
     {
-// seleniumdaki BekleKapat
+
         MyFunc.Bekle(3);
         driver.quit(); // bütün açılmış windowları kapatır
         LogTutma.info("Driver kapatıldı");
 
-//if (hata oldu ise)
+
         LogTutma.warn("Driver kapatılamadı.");
     }
 
@@ -83,7 +83,7 @@ public class BaseDriver {
     }
 
     @AfterMethod
-    public void AfterMetod(ITestResult sonuc) // tesin sonuç ve isim bilgisini olduğu değişkeni
+    public void AfterMetod(ITestResult sonuc)
     {
         LogTutma.info(sonuc.getName()+", Metod Bitti"+" Sonuc="+ (sonuc.getStatus()==1 ? "Passed" : "Failed") );
 
