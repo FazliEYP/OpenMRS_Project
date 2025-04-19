@@ -2,6 +2,7 @@ package US_403;
 
 import Utility.BaseDriver;
 import Utility.BaseDriverParameter;
+import Utility.Elements;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -11,7 +12,7 @@ public class Logout extends BaseDriver{
     @Parameters("BrowserTipi")
 
     public void Logout() {
-        Logout_Elements elements = new Logout_Elements(driver);
+        Elements elements = new Elements(driver);
 
         // text gözükene kadar bekle
         wait.until(ExpectedConditions.visibilityOf(elements.visibleCaptionStartingWithLogged)).getText().contains("Logged in as Super User (admin) at ");
