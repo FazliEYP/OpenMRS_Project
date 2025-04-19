@@ -1,8 +1,9 @@
-package ProjectMRS;
+package US_404;
 
 import Utility.BaseDriver;
-import Utility.BaseDriverMRS;
-import Utility.BaseDriverParameters;
+
+import Utility.BaseDriverParameter;
+
 import Utility.MyFunc;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -18,7 +19,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
 
-public class mrsPOM extends BaseDriverMRS{
+public class mrsPOM extends BaseDriverParameter {
 
     @Test
     public void registerMrs() throws AWTException {
@@ -27,7 +28,7 @@ public class mrsPOM extends BaseDriverMRS{
         String middleName = "Annie";
         String lastName = "Johnson";
 
-        mrsElements mrs = new mrsElements(driver);
+       mrsElements mrs = new mrsElements(driver);
         mrs.registerPatient.click();
         mrs.givenName.sendKeys(firstName);
         mrs.middleName.sendKeys(middleName);
