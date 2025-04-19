@@ -5,7 +5,21 @@
     <test name="test1">
         <parameter name="BrowserTipi" value="edge"></parameter>
         <classes>
-            <class name="US_408.US_408"></class>
+            <class name="US_402.US402"></class>
+        </classes>
+    </test>
+
+    <test name="test1">
+        <parameter name="BrowserTipi" value="edge"></parameter>
+        <classes>
+            <class name="US_402.US402"></class>
+        </classes>
+    </test>
+
+    <test name="test1">
+        <parameter name="BrowserTipi" value="edge"></parameter>
+        <classes>
+            <class name="US_402.US402"></class>
         </classes>
     </test>
 
