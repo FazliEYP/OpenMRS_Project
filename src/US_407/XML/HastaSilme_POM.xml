@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="MySuite">
+
+    <test name="test1">
+        <parameter name="BrowserTipi" value="Chrome"></parameter>
+        <classes>
+            <class name="US_407.HastaSilme_POM"></class>
+        </classes>
+    </test>
+    <test name="test2">
+        <parameter name="BrowserTipi" value="safari"></parameter>
+        <classes>
+            <class name="US_407.HastaSilme_POM"></class>
+        </classes>
+    </test>
+    <test name="test3">
+        <parameter name="BrowserTipi" value="Firefox"></parameter>
+        <classes>
+            <class name="US_407.HastaSilme_POM"></class>
+        </classes>
+    </test>
+</suite>
