@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="mySuit" parallel="tests" thread-count="3">
+
+    <test name="Test1">
+
+        <parameter name="BrowserTipi" value="chrome"></parameter>
+
+        <classes>
+            <class name="US_409.HastaKayıtlariniBirlestirmeMerge"></class>
+        </classes>
+    </test>
+</suite>
