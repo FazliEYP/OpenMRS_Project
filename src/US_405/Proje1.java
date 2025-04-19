@@ -2,6 +2,7 @@ package US_405;
 
 import US_405.OpenMRSDemoPage;
 import Utility.BaseDriver;
+import Utility.Elements;
 import Utility.MyFunc;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -14,7 +15,7 @@ public class Proje1 extends BaseDriver {
     @Test(groups = {"Smoke Test"})
     public void Test01() {
 
-        OpenMRSDemoPage page = new OpenMRSDemoPage(driver);
+        Elements page = new Elements(driver);
         System.out.println("Smoke test başladı.");
         driver.get("https://openmrs.org/");
         MyFunc.Bekle(3);
@@ -32,13 +33,13 @@ public class Proje1 extends BaseDriver {
         MyFunc.Bekle(3);
         page.entermrs2Btn.click();
 
-        page.username.sendKeys("admin");
+        page.usernameInputField.sendKeys("admin");
         MyFunc.Bekle(2);
-        page.password.sendKeys("Admin123");
+        page.passwordInputField.sendKeys("Admin123");
         MyFunc.Bekle(2);
         page.registration.click();
         MyFunc.Bekle(2);
-        page.loginBtn.click();
+        page.logInButton.click();
         MyFunc.Bekle(2);
 
         new Actions(driver).moveToElement(page.adminDropdown).perform();
@@ -66,7 +67,7 @@ public class Proje1 extends BaseDriver {
         MyFunc.Bekle(2);
 
         try {
-            Assert.assertTrue(page.errorText.getText().contains("User defaults could not be updated."));
+            Assert.assertTrue(page.errorTex.getText().contains("User defaults could not be updated."));
         } catch (Exception e) {
         } finally {
             TearDown();
