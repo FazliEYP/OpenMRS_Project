@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class HastaSilme_POM extends BaseDriver {
+public class HastaSilme_POM extends BaseDriverParameter {
 @Test
     public void HastaSilme(){
 
