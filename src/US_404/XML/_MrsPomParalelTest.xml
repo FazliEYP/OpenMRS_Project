@@ -6,7 +6,7 @@
         <parameter name="BrowserTipi" value="chrome"></parameter>
 
         <classes>
-            <class name="ProjectMRS.mrsPOM"></class>
+            <class name="US_404.mrsPOM"></class>
         </classes>
     </test>
 
@@ -14,7 +14,7 @@
         <parameter name="BrowserTipi" value="edge"></parameter>
 
         <classes>
-            <class name="ProjectMRS.mrsPOM"></class>
+            <class name="US_404.mrsPOM"></class>
         </classes>
     </test>
 
