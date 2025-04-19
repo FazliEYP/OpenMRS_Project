@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class Elements {
+    public Elements(WebDriver driver) {
+    PageFactory.initElements(driver,this);    }
 
     @FindBy(xpath = "//*[@id='username']")
     public WebElement usernameInputField;
