@@ -296,6 +296,9 @@ public class Elements {
 
     //410
 
+    @FindBy(xpath = "//li[@id='Inpatient Ward']")
+    public WebElement LocationInpatient;
+
     @FindBy(xpath = "//a[contains(@href,'appointmentscheduling')]")
     public WebElement AppointmentScheduling;
 
