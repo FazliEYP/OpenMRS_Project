@@ -1,6 +1,7 @@
 package US_406;
 
 import Utility.BaseDriver;
+import Utility.Elements;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -14,7 +15,7 @@ public class FindPatientTest extends BaseDriver{
     @Test(priority = 1)
     public void findPatient(){
 
-        US_406Elements elements=new US_406Elements(driver);
+        Elements elements = new Elements(driver);
         elements.findPatientRecordBtn.click();
         elements.searchField.sendKeys("Emma Herston".toLowerCase());
         elements.choosePatient.click();
@@ -25,7 +26,7 @@ public class FindPatientTest extends BaseDriver{
     }
     @Test(dependsOnMethods = "findPatient")
     public void searchPatientID(){
-        US_406Elements elements=new US_406Elements(driver);
+        Elements elements = new Elements(driver);
         driver.navigate().back();
         wait.until(ExpectedConditions.visibilityOf(elements.searchField)).click();
         elements.searchField.sendKeys("100HTR".toLowerCase());
@@ -38,7 +39,7 @@ public class FindPatientTest extends BaseDriver{
 
     @Test(dependsOnMethods = "searchPatientID")
     public void searchNonExistentPatient(){
-        US_406Elements elements=new US_406Elements(driver);
+        Elements elements = new Elements(driver);
         driver.navigate().back();
         wait.until(ExpectedConditions.visibilityOf(elements.searchField)).click();
         elements.searchField.sendKeys("invalidPatient");

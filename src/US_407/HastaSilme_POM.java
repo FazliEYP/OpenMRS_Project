@@ -1,6 +1,8 @@
 package US_407;
 
 import Utility.BaseDriver;
+import Utility.BaseDriverParameter;
+import Utility.Elements;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,30 +15,31 @@ public class HastaSilme_POM extends BaseDriverParameter {
     public void HastaSilme(){
 
     WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
-    HastaSilme_Elements hse = new HastaSilme_Elements();
+    Elements elements = new Elements(driver);
+
     driver.get("https://o2.openmrs.org/openmrs/login.htm");
 
 
-    wait1.until(ExpectedConditions.visibilityOf(hse.userName));
-    hse.userName.sendKeys("admin");
-    hse.password.sendKeys("Admin123");
-    hse.regDesk.click();
-    hse.loginButton.click();
+    wait1.until(ExpectedConditions.visibilityOf(elements.userName));
+    elements.userName.sendKeys("admin");
+    elements.password.sendKeys("Admin123");
+    elements.regDesk.click();
+    elements.loginButton.click();
 
-    wait1.until(ExpectedConditions.elementToBeClickable(hse.findPatientRecord));
-    hse.findPatientRecord.click();
+    wait1.until(ExpectedConditions.elementToBeClickable(elements.findPatientRecord));
+    elements.findPatientRecord.click();
 
-    wait1.until(ExpectedConditions.visibilityOf(hse.searchBox));
-    hse.searchBox.sendKeys("100KFD" + Keys.ENTER);
-    hse.activePatient.click();
+    wait1.until(ExpectedConditions.visibilityOf(elements.searchBox));
+    elements.searchBox.sendKeys("100KFD" + Keys.ENTER);
+    elements.activePatient.click();
 
 
-    wait1.until(ExpectedConditions.elementToBeClickable(hse.deletePatientLink));
-    hse.deletePatientLink.click();
+    wait1.until(ExpectedConditions.elementToBeClickable(elements.deletePatientLink));
+    elements.deletePatientLink.click();
 
-    hse.reasonBox.sendKeys("Patient demand");
-    wait1.until(ExpectedConditions.elementToBeClickable(hse.reasonConfirm));
-    hse.reasonConfirm.click();
+    elements.reasonBox.sendKeys("Patient demand");
+    wait1.until(ExpectedConditions.elementToBeClickable(elements.reasonConfirm));
+    elements.reasonConfirm.click();
 
 
 }

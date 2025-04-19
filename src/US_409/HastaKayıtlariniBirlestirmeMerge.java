@@ -1,6 +1,7 @@
 package US_409;
 
 import Utility.BaseDriverParameter;
+import Utility.Elements;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -11,7 +12,7 @@ public class HastaKayıtlariniBirlestirmeMerge extends BaseDriverParameter {
     @Test(groups = "Regression")
     public void Merge(){
 
-        Elements elements=new Elements(driver);
+        Elements elements = new Elements(driver);
 
         elements.dataManagementButton.click();
         elements.mergePatientERButton.click();

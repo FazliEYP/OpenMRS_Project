@@ -4,6 +4,7 @@ import Utility.BaseDriver;
 
 import Utility.BaseDriverParameter;
 
+import Utility.Elements;
 import Utility.MyFunc;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -23,48 +24,48 @@ public class mrsPOM extends BaseDriverParameter {
 
     @Test
     public void registerMrs() throws AWTException {
-
+        Elements elements = new Elements(driver);
         String firstName = "Harley";
         String middleName = "Annie";
         String lastName = "Johnson";
 
-       mrsElements mrs = new mrsElements(driver);
-        mrs.registerPatient.click();
-        mrs.givenName.sendKeys(firstName);
-        mrs.middleName.sendKeys(middleName);
-        mrs.familyName.sendKeys(lastName);
-        mrs.nextButton.click();
 
-        mrs.genderFemale.click();
-        mrs.nextButton.click();
-        mrs.day.sendKeys("20");
-        Select month = new Select(mrs.month);
+        elements.registerPatient.click();
+        elements.givenName.sendKeys(firstName);
+        elements.middleName.sendKeys(middleName);
+        elements.familyName.sendKeys(lastName);
+        elements.nextButton.click();
+
+        elements.genderFemale.click();
+        elements.nextButton.click();
+        elements.day.sendKeys("20");
+        Select month = new Select(elements.month);
         month.selectByIndex(8);
-        mrs.year.sendKeys("1985");
-        mrs.nextButton.click();
+        elements.year.sendKeys("1985");
+        elements.nextButton.click();
 
-        mrs.address.sendKeys("456,Oak,St,Dallas,TX");
-        mrs.cityVillage.sendKeys("Dallas");
-        mrs.stateProvince.sendKeys("Texas");
-        mrs.country.sendKeys("USA");
-        mrs.postalCode.sendKeys("88000");
-        mrs.nextButton.click();
-        mrs.phoneNumber.sendKeys("(555)-235-3632");
-        mrs.nextButton.click();
+        elements.address.sendKeys("456,Oak,St,Dallas,TX");
+        elements.cityVillage.sendKeys("Dallas");
+        elements.stateProvince.sendKeys("Texas");
+        elements.country.sendKeys("USA");
+        elements.postalCode.sendKeys("88000");
+        elements.nextButton.click();
+        elements.phoneNumber.sendKeys("(555)-235-3632");
+        elements.nextButton.click();
 
 
-        Select relation = new Select(mrs.relationShip);
+        Select relation = new Select(elements.relationShip);
         relation.selectByVisibleText("Parent");
-        mrs.relationShipName.sendKeys("John Doe");
-         mrs.plus.click();
+        elements.relationShipName.sendKeys("John Doe");
+        elements.plus.click();
          MyFunc.Bekle(1);
-        Select relation2 = new Select(mrs.relationShip2);
+        Select relation2 = new Select(elements.relationShip2);
         relation2.selectByVisibleText("Child");
-        mrs.relationShipName2.sendKeys("Sarah Hall");
+        elements.relationShipName2.sendKeys("Sarah Hall");
         MyFunc.Bekle(2);
-        mrs.nextButton.click();
+        elements.nextButton.click();
         MyFunc.Bekle(2);
-        mrs.confirmButton.click();
+        elements.confirmButton.click();
         MyFunc.Bekle(2);
 
         Robot robot = new Robot();

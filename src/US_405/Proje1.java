@@ -2,6 +2,7 @@ package US_405;
 
 import US_405.OpenMRSDemoPage;
 import Utility.BaseDriver;
+import Utility.Elements;
 import Utility.MyFunc;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -14,59 +15,59 @@ public class Proje1 extends BaseDriver {
     @Test(groups = {"Smoke Test"})
     public void Test01() {
 
-        OpenMRSDemoPage page = new OpenMRSDemoPage(driver);
+        Elements elements = new Elements(driver);
         System.out.println("Smoke test başladı.");
         driver.get("https://openmrs.org/");
         MyFunc.Bekle(3);
 
-        page.languageButton.click();
+        elements.languageButton.click();
         MyFunc.Bekle(3);
-        page.englishOption.click();
-        page.demoBtn.click();
+        elements.englishOption.click();
+        elements.demoBtn.click();
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", page.mrs2Btn);
         MyFunc.Bekle(3);
-        page.mrs2Btn.click();
+        elements.mrs2Btn.click();
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", page.entermrs2Btn);
         MyFunc.Bekle(3);
-        page.entermrs2Btn.click();
+        elements.entermrs2Btn.click();
 
-        page.username.sendKeys("admin");
+        elements.username.sendKeys("admin");
         MyFunc.Bekle(2);
-        page.password.sendKeys("Admin123");
+        elements.password.sendKeys("Admin123");
         MyFunc.Bekle(2);
-        page.registration.click();
+        elements.registration.click();
         MyFunc.Bekle(2);
-        page.loginBtn.click();
+        elements.loginBtn.click();
         MyFunc.Bekle(2);
 
-        new Actions(driver).moveToElement(page.adminDropdown).perform();
+        new Actions(driver).moveToElement(elements.adminDropdown).perform();
         MyFunc.Bekle(3);
-        page.myAccount.click();
+        elements.myAccount.click();
 
-        page.changePasswordBtn.click();
+        elements.changePasswordBtn.click();
         MyFunc.Bekle(2);
-        page.oldPassword.sendKeys("Admin123");
+        elements.oldPassword.sendKeys("Admin123");
         MyFunc.Bekle(2);
-        page.newPassword.sendKeys("Admin123!");
+        elements.newPassword.sendKeys("Admin123!");
         MyFunc.Bekle(2);
-        page.confirmPassword.sendKeys("Admin123!");
+        elements.confirmPassword.sendKeys("Admin123!");
         MyFunc.Bekle(2);
-        page.saveBtn.click();
+        elements.saveBtn.click();
         MyFunc.Bekle(2);
-        page.cancelBtn.click();
+        elements.cancelBtn.click();
         MyFunc.Bekle(2);
 
-        page.changeLanguageBtn.click();
+        elements.changeLanguageBtn.click();
         MyFunc.Bekle(2);
-        new Select(page.languageDropdown).selectByVisibleText("Italian");
+        new Select(elements.languageDropdown).selectByVisibleText("Italian");
         MyFunc.Bekle(2);
-        page.saveButtonLanguage.click();
+        elements.saveButtonLanguage.click();
         MyFunc.Bekle(2);
 
         try {
-            Assert.assertTrue(page.errorText.getText().contains("User defaults could not be updated."));
+            Assert.assertTrue(elements.errorText.getText().contains("User defaults could not be updated."));
         } catch (Exception e) {
         } finally {
             TearDown();

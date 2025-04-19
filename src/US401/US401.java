@@ -1,6 +1,7 @@
 package US401;
 
 import Utility.BaseDriverParameter;
+import Utility.Elements;
 import Utility.MyFunc;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
@@ -33,8 +34,8 @@ public class US401 extends BaseDriverParameter {
 
     @Test(dataProvider = "loginScenarios")
     public void loginTest(String username, String password, boolean withLocation, boolean shouldFail) {
-        US401Elements elements = new US401Elements(driver);
 
+        Elements elements = new Elements(driver);
         driver.get("https://openmrs.org/");
         elements.demoButton.click();
         MyFunc.Bekle(2);
