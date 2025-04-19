@@ -1,6 +1,7 @@
 package US_410;
 
 import Utility.BaseDriver;
+import Utility.Elements;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -9,14 +10,14 @@ public class US_410_TimeZone extends BaseDriver {
     @Test(dataProvider = "datalarim")
     public void TimeZone(String username, String password, String patientname){
 
-        Us_410_Elements timezone_elements = new Us_410_Elements();
+        Elements timezone_elements = new Elements(driver);
 
         driver.get("https://o2.openmrs.org/openmrs/login.htm");
         // Login girişi yapılıyor
-        timezone_elements.Username.sendKeys(username);
-        timezone_elements.Password.sendKeys(password);
-        timezone_elements.Location.click();
-        timezone_elements.LoginButton.click();
+        timezone_elements.usernameInputField.sendKeys(username);
+        timezone_elements.passwordInputField.sendKeys(password);
+        timezone_elements.LocationInpatient.click();
+        timezone_elements.logInButton.click();
 
 
         // Hasta adı seçimi yapılıp randevu alınıyor ve saat dilimi hatası gözlemleniyor
