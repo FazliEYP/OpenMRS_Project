@@ -1,7 +1,8 @@
 package Utility;
 
-import US408.US408Elements;
 
+
+import US_408.US408Elements;
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -49,7 +50,7 @@ public class BaseDriver {
     public void LoginTest() {
         driver.get("https://o2.openmrs.org/openmrs/login.htm");
 
-        US408Elements elements = new US408Elements(driver);
+        US_408.US408Elements elements = new US_408.US408Elements(driver);
         wait.until(ExpectedConditions.visibilityOf(elements.usernameInputField)).sendKeys("admin");
         wait.until(ExpectedConditions.visibilityOf(elements.passwordInputField)).sendKeys("Admin123");
         wait.until(ExpectedConditions.visibilityOf(elements.locations.get(MyFunc.RandomSayiVer(elements.locations.size())))).click();
