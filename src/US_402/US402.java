@@ -45,10 +45,6 @@ public class US402 extends BaseDriverParameter {
 
         Assert.assertTrue(elements.myAccountButton.isDisplayed());
 
-
-
-
-
     }
 
 
