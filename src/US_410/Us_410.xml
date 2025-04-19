@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="mySuit">
+
+    <test name="test1">
+
+        <classes>
+            <class name="US_410.US_410_TimeZone"></class>
+        </classes>
+    </test>
+
+</suite>
